@@ -1,4 +1,4 @@
-package com.invexdijin.bd.transaction.infrastructure.model;
+package com.invexdijin.bd.transaction.infrastructure.model.in.confirm;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

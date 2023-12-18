@@ -1,4 +1,4 @@
-package com.invexdijin.bd.transaction.infrastructure.model;
+package com.invexdijin.bd.transaction.infrastructure.model.in.confirm;
 
 import com.invexdijin.bd.transaction.domain.model.InitSearchEntity;
 import jakarta.persistence.*;

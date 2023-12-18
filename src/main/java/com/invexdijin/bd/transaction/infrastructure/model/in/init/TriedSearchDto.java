@@ -1,4 +1,4 @@
-package com.invexdijin.bd.transaction.infrastructure.model;
+package com.invexdijin.bd.transaction.infrastructure.model.in.init;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;

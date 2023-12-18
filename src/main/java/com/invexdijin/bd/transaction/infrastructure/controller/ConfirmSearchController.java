@@ -1,7 +1,7 @@
 package com.invexdijin.bd.transaction.infrastructure.controller;
 
 import com.invexdijin.bd.transaction.application.IUseCaseConfirmSearchPayService;
-import com.invexdijin.bd.transaction.infrastructure.model.InitSearchDto;
+import com.invexdijin.bd.transaction.infrastructure.model.in.confirm.InitSearchDto;
 import com.invexdijin.bd.transaction.infrastructure.util.MapperUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
