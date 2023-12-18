@@ -6,6 +6,8 @@ import com.invexdijin.bd.transaction.domain.repository.IPaymentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
+
 @Service
 public class IUseCasePaymentReferenceServiceImpl implements IUseCasePaymentReferenceService {
 
@@ -14,6 +16,7 @@ public class IUseCasePaymentReferenceServiceImpl implements IUseCasePaymentRefer
 
     @Override
     public void createPayment(PaymentEntity payment) {
+        payment.setPaymentDate(new Date());
         paymentRepository.save(payment);
     }
 }
