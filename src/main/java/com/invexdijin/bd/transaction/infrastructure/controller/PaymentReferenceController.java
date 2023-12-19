@@ -30,7 +30,7 @@ public class PaymentReferenceController {
     public ResponseEntity<Map<String, Object>> createPayment(@RequestBody PaymentReferenceDto paymentReference){
         Map<String,Object> response = new HashMap<>();
         PaymentEntity payment = mapperUtil.map(paymentReference, PaymentEntity.class);
-        InitSearchEntity initSearchEntity  = InitSearchEntity.builder().id(paymentReference.getInitSearchId()).build();
+        InitSearchEntity initSearchEntity  = InitSearchEntity.builder().id(paymentReference.getInitSearch().getId()).build();
         payment.setInitSearch(initSearchEntity);
         paymentReferenceService.createPayment(payment);
         response.put("message","Created reference payment");

@@ -27,14 +27,11 @@ public class UpdateStatusPaymentController {
     private IUseCaseUpdatePaymentService updatePaymentService;
 
     @PutMapping("update-payment")
-    public ResponseEntity<Map<String, Object>> updatePayment(@RequestParam("signature") String signature,
-                                                             @RequestParam("status") String status){
-        Map<String, Object> response = new HashMap<>();
+    public ResponseEntity<PaymentReferenceDto> updatePayment(@RequestParam("signature") String signature,
+                                                             @RequestParam("status") String status) {
         PaymentEntity paymentUpdated = updatePaymentService.updatePayment(signature, status);
         PaymentReferenceDto paymentUpdatedDto = mapperUtil.map(paymentUpdated, PaymentReferenceDto.class);
-        paymentUpdatedDto.setInitSearchId(paymentUpdated.getInitSearch().getId());
-        response.put("payment", paymentUpdatedDto);
-        return ResponseEntity.created(URI.create("/api/v1/invexdijin")).body(response);
+        return ResponseEntity.created(URI.create("/api/v1/invexdijin")).body(paymentUpdatedDto);
 
     }
 }

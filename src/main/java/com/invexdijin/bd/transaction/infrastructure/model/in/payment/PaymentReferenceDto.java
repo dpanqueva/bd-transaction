@@ -27,7 +27,7 @@ public class PaymentReferenceDto {
 
     private String paymentStatus;
 
-    private String initSearchId;
+    private InitSearchPaymentRefDto initSearch;
 
 
 }
