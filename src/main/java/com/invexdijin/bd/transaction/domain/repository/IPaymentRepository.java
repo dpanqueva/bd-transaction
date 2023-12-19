@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface IPaymentRepository extends JpaRepository<PaymentEntity, Long> {
 
-
+    PaymentEntity findByPaymentSignature(String signature);
 }

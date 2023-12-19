@@ -18,27 +18,19 @@ public class PaymentDto {
 
     private Long id;
 
-
     private String paymentName;
-
 
     private String paymentLastName;
 
-
     private String paymentEmail;
-
 
     private String paymentDocumentType;
 
-
     private String paymentDocumentNumber;
-
 
     private String paymentContact;
 
-
     private String paymentSignature;
-
 
     private String paymentStatus;
 

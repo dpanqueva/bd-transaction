@@ -29,7 +29,7 @@ public class UseCaseSaveTriedSearchServiceServiceImpl implements IUseCaseSaveTri
 
         Date date = new Date();
         String strDate = String.valueOf(date.getTime());
-        request.setId(String.valueOf(strDate).concat("-").concat(UUID.randomUUID().toString()));
+        request.setId(strDate.concat("-").concat(UUID.randomUUID().toString()));
         request.setSearchDate(date);
         return initSearchRepository.save(request);
 
