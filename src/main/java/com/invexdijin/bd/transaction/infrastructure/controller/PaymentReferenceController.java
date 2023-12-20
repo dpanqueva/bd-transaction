@@ -26,10 +26,18 @@ public class PaymentReferenceController {
     @Autowired
     private MapperUtil mapperUtil;
 
-    @PostMapping("/create-payment")
+    @PostMapping("/create-client")
     public ResponseEntity<Map<String, Object>> createPayment(@RequestBody PaymentReferenceDto paymentReference){
         Map<String,Object> response = new HashMap<>();
-        PaymentEntity payment = mapperUtil.map(paymentReference, PaymentEntity.class);
+        PaymentEntity payment = PaymentEntity.builder()
+                .paymentDocumentType(paymentReference.getPaymentDocumentType())
+                .paymentDocumentNumber(paymentReference.getPaymentDocumentNumber())
+                .paymentName(paymentReference.getPaymentName())
+                .paymentLastName(paymentReference.getPaymentLastName())
+                .paymentEmail(paymentReference.getPaymentEmail())
+                .paymentContact(paymentReference.getPaymentContact())
+                .paymentSignature(paymentReference.getPaymentSignature())
+                .build();
         InitSearchEntity initSearchEntity  = InitSearchEntity.builder().id(paymentReference.getInitSearch().getId()).build();
         payment.setInitSearch(initSearchEntity);
         paymentReferenceService.createPayment(payment);

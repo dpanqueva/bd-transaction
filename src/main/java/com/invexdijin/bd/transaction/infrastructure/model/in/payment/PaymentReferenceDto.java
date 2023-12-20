@@ -1,5 +1,6 @@
 package com.invexdijin.bd.transaction.infrastructure.model.in.payment;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -27,6 +28,7 @@ public class PaymentReferenceDto {
 
     private String paymentStatus;
 
+    @JsonBackReference
     private InitSearchPaymentRefDto initSearch;
 
 
