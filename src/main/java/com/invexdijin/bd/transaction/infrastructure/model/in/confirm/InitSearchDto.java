@@ -24,6 +24,12 @@ public class InitSearchDto {
 
     private Date searchDate;
 
+    private String firstName;
+
+    private String lastName;
+
+    private String fullName;
+
     private PaymentDto payment;
 
 

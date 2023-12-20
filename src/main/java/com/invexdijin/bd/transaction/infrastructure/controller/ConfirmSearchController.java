@@ -21,7 +21,8 @@ public class ConfirmSearchController {
     private MapperUtil mapperUtil;
 
     @GetMapping("/intention-search-pay/{referenceLocator}")
-    ResponseEntity<InitSearchDto> testTest(@PathVariable String referenceLocator) {
-        return ResponseEntity.ok(mapperUtil.map(payService.findByReferenceLocatorAndDate(referenceLocator), InitSearchDto.class));
+    ResponseEntity<InitSearchDto> intentionSearchPay(@PathVariable String referenceLocator) {
+        return ResponseEntity.ok(mapperUtil.map(payService.findByReferenceLocatorAndDate(referenceLocator)
+                , InitSearchDto.class));
     }
 }
