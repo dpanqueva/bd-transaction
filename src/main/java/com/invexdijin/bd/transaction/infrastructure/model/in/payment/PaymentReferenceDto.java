@@ -28,7 +28,6 @@ public class PaymentReferenceDto {
 
     private String paymentStatus;
 
-    @JsonBackReference
     private InitSearchPaymentRefDto initSearch;
 
 

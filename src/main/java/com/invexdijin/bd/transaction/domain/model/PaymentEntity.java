@@ -51,7 +51,6 @@ public class PaymentEntity {
     @Temporal(TemporalType.DATE)
     private Date paymentDate;
 
-    @JsonBackReference
     @OneToOne
     @JoinColumn(name = "init_search_id", referencedColumnName = "init_search_id")
     private InitSearchEntity initSearch;

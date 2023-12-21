@@ -51,7 +51,6 @@ public class InitSearchEntity {
     @Column(name = "search_date")
     private Date searchDate;
 
-    @JsonManagedReference
     @OneToOne(mappedBy = "initSearch", fetch = FetchType.LAZY)
     private PaymentEntity payment;
 
