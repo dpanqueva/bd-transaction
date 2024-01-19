@@ -28,7 +28,7 @@ public class ContactEntity {
     private String contactEmail;
 
     @Column(name = "contact_number")
-    private BigInteger contactNumber;
+    private String contactNumber;
 
     @Column(name = "contact_message", columnDefinition = "TEXT")
     private String contactMessage;

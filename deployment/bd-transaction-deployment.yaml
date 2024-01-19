@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bd-transaction
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bd-transaction
+  template:
+    metadata:
+      labels:
+        app: bd-transaction
+    spec:
+      serviceAccountName: ksa-cloud-sql # TODO(developer): replace this value.
+      containers:
+        - name: bd-transaction
+          image: docker.io/jamp1992/bd-transaction:v2
+          env:
+            - name: JDBC_URL
+              value: /invexdijin-db?cloudSqlInstance=invexdijin-27122023:us-central1:invexdijin-instance&socketFactory=com.google.cloud.sql.postgres.SocketFactory&user=invexdijin-user&password=s43zl_z3@
+            - name: DB_USERNAME
+              value: invexdijin-user
+            - name: DB_PSS
+              value: s43zl_z3@
+          readinessProbe:
+            failureThreshold: 10
+            initialDelaySeconds: 60
+            periodSeconds: 10
+            timeoutSeconds: 1
+            successThreshold: 1
+            httpGet:
+              httpHeaders:
+              - name: Accept
+                value: application/json
+              path: /actuator/health/readiness
+              port: 8080
+              scheme: HTTP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bd-transaction
+spec:
+  type: ClusterIP
+  selector:
+    app: bd-transaction
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 8080
