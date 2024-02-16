@@ -2,6 +2,7 @@ package com.invexdijin.bd.transaction.domain.service;
 
 import com.invexdijin.bd.transaction.application.IUseCaseSaveTriedSearchService;
 import com.invexdijin.bd.transaction.domain.model.InitSearchEntity;
+import com.invexdijin.bd.transaction.domain.repository.IAttemptsDocumentRepository;
 import com.invexdijin.bd.transaction.domain.repository.IInitSearchRepository;
 import com.invexdijin.bd.transaction.infrastructure.exceptions.AttemptsLimitException;
 import lombok.extern.slf4j.Slf4j;
@@ -18,10 +19,13 @@ public class UseCaseSaveTriedSearchServiceServiceImpl implements IUseCaseSaveTri
     @Autowired
     private IInitSearchRepository initSearchRepository;
 
+    @Autowired
+    private IAttemptsDocumentRepository attemptsDocumentRepository;
+
 
     @Override
     public InitSearchEntity saveTriedSearch(InitSearchEntity request) {
-        if (initSearchRepository.countByDocumentTypeAndDocumentNumberAndSearchDate(request.getDocumentType(),
+        if (attemptsDocumentRepository.countByDocumentTypeAndDocumentNumberAndSearchDate(request.getDocumentType(),
                 request.getDocumentNumber(), new Date()) >= 3) {
             throw new AttemptsLimitException("You have exceeded the limit of allowed searches.");
         }

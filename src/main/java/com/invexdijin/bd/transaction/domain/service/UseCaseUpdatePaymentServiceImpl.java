@@ -16,11 +16,11 @@ public class UseCaseUpdatePaymentServiceImpl implements IUseCaseUpdatePaymentSer
     private IPaymentRepository paymentRepository;
 
     @Override
-    public PaymentEntity updatePayment(String signature, String status) {
+    public PaymentEntity updatePayment(String initSearchId, String status) {
 
-        PaymentEntity paymentUpdate = paymentRepository.findByPaymentSignature(signature);
-        if(paymentUpdate == null){
-            throw new NotFoundException("Resource not founded signature ".concat(signature));
+        PaymentEntity paymentUpdate = paymentRepository.findByInitSearchId(initSearchId);
+        if (paymentUpdate == null) {
+            throw new NotFoundException("Resource not founded signature ".concat(initSearchId));
         }
         paymentUpdate.setPaymentStatus(status);
         paymentUpdate.setPaymentDate(new Date());
