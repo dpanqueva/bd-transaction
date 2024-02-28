@@ -32,5 +32,7 @@ public class InitSearchDto {
 
     private PaymentDto payment;
 
+    private boolean termsConditions;
+
 
 }

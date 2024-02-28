@@ -54,6 +54,8 @@ public class InitSearchEntity {
     @OneToOne(mappedBy = "initSearch", fetch = FetchType.LAZY)
     private PaymentEntity payment;
 
+    @Column(name = "terms_conditions")
+    private boolean termsConditions;
 
 
 }
