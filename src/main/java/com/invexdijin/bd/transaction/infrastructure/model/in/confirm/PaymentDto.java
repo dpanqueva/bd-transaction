@@ -1,7 +1,5 @@
 package com.invexdijin.bd.transaction.infrastructure.model.in.confirm;
 
-import com.invexdijin.bd.transaction.domain.model.InitSearchEntity;
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

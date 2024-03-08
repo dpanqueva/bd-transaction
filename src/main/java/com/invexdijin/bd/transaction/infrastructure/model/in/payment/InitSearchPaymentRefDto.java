@@ -1,9 +1,5 @@
 package com.invexdijin.bd.transaction.infrastructure.model.in.payment;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Id;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
 import lombok.*;
 
 import java.util.Date;
